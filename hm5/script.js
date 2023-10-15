@@ -4,7 +4,7 @@ let userOperation = prompt("What action you want to do? Add, Diff, Mult, Div, Sq
 if (userOperation === null) {
     console.log("Good by, see you later.");
 } else {
-    if (userOperation === "add" && "diff" && "mult" && "div") {
+    if (userOperation === "add" || userOperation === "diff" || userOperation === "mult" || userOperation === "div") {
         const userNumber1 = parseFloat(prompt("first number:"));
         const userNumber2 = parseFloat(prompt("first number::"));
 
