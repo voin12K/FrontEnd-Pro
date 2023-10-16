@@ -1,5 +1,5 @@
 console.log("Welcome to calculator!")
-let userOperation = prompt("What action you want to do? Add, Diff, Mult, Div, Sqrt, Sin, Cos");
+const userOperation = prompt("What action you want to do? Add, Diff, Mult, Div, Sqrt, Sin, Cos");
 
 if (userOperation === null) {
     console.log("Good by, see you later.");
