@@ -1,27 +1,27 @@
-alert("Welcome to the calculator!");
 
+let calculatorHistory = [];
 
 
 while (true) {
-    var userChoice = prompt("Choose an action:\n1. Open calculator \n2. view history calculator\n3. Exit");
+    let userChoice = prompt("Choose an action:\n1. Open calculator\n2. View calculator history\n3. Exit");
 
     if (userChoice === "1") {
-        calculator()
+        calculator();
     } else if (userChoice === "2") {
-        history()
+        history();
     } else if (userChoice === "3" || userChoice === null) {
         alert("Goodbye, see you later.");
-        break;
+        break; // Exit the loop
     }
 }
 
-function calculator(){
+function calculator() {
     let userOperation = prompt("What action do you want to perform? (add, diff, mult, div, sqrt, sin, cos)");
 
     if (userOperation === null) {
         alert('Goodbye, see you later.');
     } else if (userOperation !== 'add' && userOperation !== 'diff' && userOperation !== 'mult' && userOperation !== 'div' && userOperation !== 'sqrt' && userOperation !== 'sin' && userOperation !== 'cos') {
-        alert("I don't recognize your operation. Please choose a correct operation like: (add, diff, mult, div, sqrt, sin, cos)");
+        alert("I don't recognize your operation. Please choose a valid operation like: (add, diff, mult, div, sqrt, sin, cos)");
     } else {
         switch (userOperation) {
             case "add":
@@ -36,7 +36,7 @@ function calculator(){
                 }
 
                 while (isNaN(userNumber1)) {
-                    userNumber1 = parseFloat(prompt("This is a bad digit. Please enter a correct digit."));
+                    userNumber1 = parseFloat(prompt("This is not a valid number. Please enter a valid number."));
                 }
 
                 let userNumber2 = parseFloat(prompt("Enter the second number:"));
@@ -47,12 +47,12 @@ function calculator(){
                 }
 
                 while (isNaN(userNumber2)) {
-                    userNumber2 = parseFloat(prompt("This is a bad digit. Please enter a correct digit."));
+                    userNumber2 = parseFloat(prompt("This is not a valid number. Please enter a valid number."));
                 }
 
                 if (!isNaN(userNumber2)) {
-                    let result;
-                    let operationSymbol;
+                    var result;
+                    var operationSymbol;
 
                     if (userOperation === "add") {
                         operationSymbol = "+";
@@ -70,14 +70,16 @@ function calculator(){
                         result = "Division by zero is not allowed.";
                     }
 
-                    alert(`${userOperation}: ${userNumber1} ${operationSymbol} ${userNumber2} = ${result}`);
+                    let historyRes = userNumber1 + " " + operationSymbol + " " + userNumber2 + " = " + result;
+                    calculatorHistory.push(historyRes);
+                    alert(userOperation + ": " + userNumber1 + " " + operationSymbol + " " + userNumber2 + " = " + result);
                 }
                 break;
 
             case "sqrt":
             case "sin":
             case "cos":
-                let userNumber = parseFloat(prompt("Enter a number:"));
+                var userNumber = parseFloat(prompt("Enter a number:"));
 
                 if (userNumber === null) {
                     alert('Goodbye, see you later.');
@@ -85,7 +87,7 @@ function calculator(){
                 }
 
                 while (isNaN(userNumber)) {
-                    userNumber = parseFloat(prompt("This is a bad digit. Please enter a correct digit."));
+                    userNumber = parseFloat(prompt("This is not a valid number. Please enter a valid number."));
                 }
 
                 if (!isNaN(userNumber)) {
@@ -99,26 +101,20 @@ function calculator(){
                         result = Math.cos(userNumber);
                     }
 
-                    alert(`${userOperation} ${userNumber} = ${result}`);
+                    alert(userOperation + " " + userNumber + " = " + result);
                 } else {
                     alert("The entered number is not valid. Goodbye.");
                 }
                 break;
-
-
         }
-
     }
-
-
 }
 
 function history() {
-    calculatorHistory = [];
-    alert(calculatorHistory)
+    if (calculatorHistory.length === 0) {
+        alert("Calculator history is empty.");
+    } else {
+        const historyText = "Calculator History:\n" + calculatorHistory.join("\n");
+        alert(historyText);
+    }
 }
-
-
-
-
-
