@@ -11,7 +11,7 @@ while (true) {
         history();
     } else if (userChoice === "3" || userChoice === null) {
         alert("Goodbye, see you later.");
-        break; // Exit the loop
+        break;
     }
 }
 
