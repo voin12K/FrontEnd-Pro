@@ -1,8 +1,19 @@
-for (let row = 1; row <= 10; row++) {
-    let rowString = "";
-    for (let col = 1; col <= 10; col++) {
-        const number = (row - 1) * 10 + col;
-        rowString += number + "\t";
+function createTable() {
+    const table = document.createElement('table');
+    table.setAttribute('border', '1');
+    let number = 1;
+
+    for (let i = 0; i < 10; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < 10; j++) {
+            const td = document.createElement('td');
+            td.textContent = number++;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
     }
-    console.log(rowString);
+
+    document.body.appendChild(table);
 }
+
+window.onload = createTable;
