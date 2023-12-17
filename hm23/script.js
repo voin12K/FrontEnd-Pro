@@ -7,7 +7,7 @@ const votesContainer = document.getElementById('votes-container');
 smileys.forEach((smiley, index) => {
     const smileyDiv = document.createElement('div');
     smileyDiv.className = 'smiley';
-    smileyDiv.textContent = smiley;
+    smileyDiv.textContent = smiley;qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 
     smileyDiv.addEventListener('click', () => {
         votes[index]++;
