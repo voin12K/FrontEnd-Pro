@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.categories, .products, .product-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.category, .product {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
