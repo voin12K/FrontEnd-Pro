@@ -1,5 +1,5 @@
-var currentSlide = 1;
-var totalSlides = 5;
+const currentSlide = 1;
+const totalSlides = 5;
 
 function showSlide() {
     var imageSrc = "/hm22/images/" + currentSlide + "%20.jpg";
