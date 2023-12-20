@@ -1,4 +1,3 @@
-
 const productsData = {
     electronics: [
         { name: 'Смартфон', info: 'Дуже крутий смартфон', price: 500 },
@@ -12,30 +11,49 @@ const productsData = {
 
 function showProducts(category) {
     const productsBlock = document.getElementById('products');
-    productsBlock.innerHTML = '';
+    clearElement(productsBlock);
 
     const products = productsData[category];
     products.forEach(product => {
         const productElement = document.createElement('div');
         productElement.className = 'product';
-        productElement.innerHTML = product.name;
-        productElement.onclick = () => showProductInfo(product);
+        productElement.textContent = product.name;
+        productElement.addEventListener('click', () => showProductInfo(product));
         productsBlock.appendChild(productElement);
     });
 }
 
 function showProductInfo(product) {
     const productInfoBlock = document.getElementById('product-info');
-    productInfoBlock.innerHTML = `
-        <h2>${product.name}</h2>
-        <p>${product.info}</p>
-        <p>Ціна: ${product.price}$</p>
-        <button onclick="buyProduct()">Купити</button>
-    `;
+    clearElement(productInfoBlock);
+
+    const h2 = document.createElement('h2');
+    h2.textContent = product.name;
+
+    const p1 = document.createElement('p');
+    p1.textContent = product.info;
+
+    const p2 = document.createElement('p');
+    p2.textContent = `Ціна: ${product.price}$`;
+
+    const button = document.createElement('button');
+    button.textContent = 'Купити';
+    button.addEventListener('click', buyProduct);
+
+    productInfoBlock.appendChild(h2);
+    productInfoBlock.appendChild(p1);
+    productInfoBlock.appendChild(p2);
+    productInfoBlock.appendChild(button);
 }
 
 function buyProduct() {
     alert('Товар куплений!');
     const productInfoBlock = document.getElementById('product-info');
-    productInfoBlock.innerHTML = '';
+    clearElement(productInfoBlock);
+}
+
+function clearElement(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
 }
