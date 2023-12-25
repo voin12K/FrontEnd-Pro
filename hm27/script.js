@@ -69,13 +69,11 @@ function confirmOrder(product) {
     const quantity = document.getElementById('quantity').value;
     const comment = document.getElementById('comment').value;
 
-    // Check for required fields
     if (!pib || !city || !novaPoshta || !payment || !quantity) {
         alert('Будь ласка, заповніть всі обов\'язкові поля.');
         return;
     }
 
-    // Display order information
     const orderInfoBlock = document.getElementById('order-info');
     clearElement(orderInfoBlock);
 
@@ -93,7 +91,6 @@ function confirmOrder(product) {
 
     orderInfoBlock.appendChild(orderInfo);
 
-    // Save order to local storage
     const order = {
         date: new Date().toLocaleString(),
         price: calculateTotalPrice(product, quantity),
@@ -112,23 +109,18 @@ function confirmOrder(product) {
     orderHistory.push(order);
     localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
 
-    // Update order history display
     showOrderHistory();
 }
 
 function showOrderHistory() {
-    // Retrieve order history from local storage or initialize an empty array
     const orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
 
-    // Get references to HTML elements
     const productsBlock = document.getElementById('products');
     const productInfoBlock = document.getElementById('product-info');
 
-    // Clear product and product info blocks
     clearElement(productsBlock);
     clearElement(productInfoBlock);
 
-    // Get or create the order history block in the HTML
     let orderHistoryBlock = document.getElementById('order-history');
     if (!orderHistoryBlock) {
         const orderHistoryDiv = document.createElement('div');
@@ -139,20 +131,16 @@ function showOrderHistory() {
         clearElement(orderHistoryBlock);
     }
 
-    // Check if there are no orders and display a message
     if (orderHistory.length === 0) {
         orderHistoryBlock.textContent = 'Немає замовлень.';
     } else {
-        // Iterate through each order and create HTML elements to display order details
         orderHistory.forEach(order => {
             const orderElement = document.createElement('div');
             orderElement.className = 'order';
             orderElement.textContent = `Дата: ${order.date}, Ціна: ${order.price} грн`;
 
-            // Add a click event listener to show order details when clicked
             orderElement.addEventListener('click', () => showOrderDetails(order));
 
-            // Append the order element to the order history block
             orderHistoryBlock.appendChild(orderElement);
         });
     }
