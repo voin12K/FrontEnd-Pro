@@ -8,11 +8,24 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class ="container">
+    <div class="container" >
         <div class="header">
+            <div class="manny">
+                <div class="manny_box">
+                    <p><span id="MannyCheck">0</span>$</p>
+                </div>
+            </div>
+            <div class="profile">
+
+            </div>
+        </div>
+    </div>
+    <div class ="container">
+        <div class="button_block">
             <input id="cod" class="cod" type="text"  placeholder="код запуска ракет">
             <button id="fire" class="button">Запустить ракету <br>  по палестинцам</button>
             <p id="rockets">Количиство выпущеных ракет: 0</p>
+            <p>Остаток ракет : <span id="rocketsHave">100</span></p>
         </div>
     </div>
     <div class="container">
@@ -27,11 +40,11 @@
             </div>
             <div class="glScore">
                 <p class="titelStat">Общий счет</p>
-                <p>Количество убитых</p>
-                <p>Количество разрушеных домов</p>
-                <p>Количиство разрущеных больниц</p>
-                <p>Количиство оправданий израиля максима каца</p>
-                <p>количиство дуа за победу палестины</p>
+                <p>Количество убитых: <span id="killGlCount" > 0</span></p>
+                <p>Количество разрушеных домов: <span id="houseGlCount" > 0</span></p>
+                <p>Количиство разрущеных больниц: <span id="hosGlCount" > 0</span></p>
+                <p>Количиство оправданий израиля максима каца: <span id="katzGlCount" > 0</span></p>
+                <p>количиство дуа за победу палестины: <span id="duaGlCount" > 0</span></p>
             </div>
         </div>
     </div>
