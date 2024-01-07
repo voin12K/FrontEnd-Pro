@@ -21,6 +21,25 @@ body {
     height: 100%;
 }
 
+.header {
+    background-color: #1f1f1f; /* Более темный фон хедера */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manny_box {
+    background-color: #282828; /* Более темный фон блока Manny */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profile {
+    /* Добавьте стили для блока профиля, например, изображение, размер, отступы и т.д. */
+}
+
 .button_block {
     justify-content: center;
     align-items: center;
@@ -38,7 +57,7 @@ body {
     border: 1px solid #555;
     border-radius: 5px;
     color: #000000;
-    background-color: #282828;
+    background-color: #424242;
 }
 
 .button {

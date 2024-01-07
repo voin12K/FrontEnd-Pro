@@ -33,13 +33,28 @@ const DestroyedHouses = document.getElementById("houseCount");
 const destroyedHos = document.getElementById("hosCount");
 const katzOp = document.getElementById("katzCount");
 const dua = document.getElementById("duaCount");
+const mannyEl = document.getElementById("manny_box");
 
 let kills = 0;
 let destroyedHouse = 0;
 let destroyedHoss = 0;
 let katzOps = 0;
 let duas = 0;
+let manny = 0;
 
+function addManny(){
+    let kilManny = kills * 10;
+    let houManny = destroyedHos * 300;
+    let hosManny = destroyedHos * 700;
+    let katzManny = katzOps * 30;
+    let duaManny = duas * 5;
+
+    let totalManny = kilManny + houManny + hosManny + katzManny + duaManny;
+    manny = totalManny;
+    manny.textContent = mannyEl;
+}
+
+Fire.addEventListener("click", addManny);
 
 function lastRocket() {
     if (codRoc.value == 1488)
