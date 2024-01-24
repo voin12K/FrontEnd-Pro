@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="contacts">
+  <h2>Contacts</h2>
+  <table id="contactsTable">
+    <thead>
+    <tr>
+      <th>Ім'я</th>
+      <th>Прізвище</th>
+      <th>Телефон</th>
+      <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button id="addContactBtn">Додати контакт</button>
+</div>
+
+<div id="contactForm" style="display: none;">
+  <h2>Форма контакту</h2>
+  <form id="form">
+    <label for="name">Ім'я:</label>
+    <input type="text" id="name" required>
+
+    <label for="surname">Прізвище:</label>
+    <input type="text" id="surname" required>
+
+    <label for="phone">Телефон:</label>
+    <input type="text" id="phone" required>
+
+    <button type="button" id="saveContactBtn">Зберегти</button>
+    <button type="button" id="cancelContactBtn">Скасувати</button>
+  </form>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
