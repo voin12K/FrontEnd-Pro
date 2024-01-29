@@ -1,24 +1,34 @@
-// ContactList.jsx
+// Contacts.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import ContactForm from './ContactForm';
 
-const ContactList = ({ onDelete }) => {
+const Contacts = () => {
     const [contacts, setContacts] = useState([]);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
-        // Отримуємо дані з API при завантаженні компонента
-        axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => setContacts(response.data))
-            .catch(error => console.error('Error fetching contacts', error));
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => setContacts(data))
+            .catch(error => console.error('Error fetching contacts:', error));
     }, []);
 
     const handleDelete = (id) => {
-        onDelete(id);
+        setContacts(contacts.filter(contact => contact.id !== id));
+    };
+
+    const handleSaveContact = (newContact) => {
+        setContacts([...contacts, newContact]);
+        setShowForm(false);
+    };
+
+    const toggleForm = () => {
+        setShowForm(!showForm);
     };
 
     return (
         <div>
-            <h2>Contact List</h2>
+            <h1>Contacts</h1>
             <table>
                 <thead>
                 <tr>
@@ -41,8 +51,14 @@ const ContactList = ({ onDelete }) => {
                 ))}
                 </tbody>
             </table>
+
+            <div>
+                <button onClick={toggleForm}>Додати контакт</button>
+            </div>
+
+            {showForm && <ContactForm onSaveContact={handleSaveContact} />}
         </div>
     );
 };
 
-export default ContactList;
+export default Contacts;

@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react';
+// App.jsx
+import React, { useState } from 'react';
 import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+    const [contacts, setContacts] = useState([]);
+    const [showForm, setShowForm] = useState(false);
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response) => response.json())
-        .then((data) => setContacts(data));
-  }, []);
+    const handleDelete = (id) => {
+        setContacts(contacts.filter(contact => contact.id !== id));
+    };
 
-  const handleDelete = (contactId) => {
-    setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== contactId));
-  };
+    const handleSave = (newContact) => {
+        setContacts([...contacts, { id: contacts.length + 1, ...newContact }]);
+        setShowForm(false);
+    };
 
-  const handleSave = (newContact) => {
-    setContacts((prevContacts) => [...prevContacts, newContact]);
-    setShowForm(false);
-  };
+    const handleCancel = () => {
+        setShowForm(false);
+    };
 
-  const handleCancel = () => {
-    setShowForm(false);
-  };
-
-  return (
-      <div>
-        <h1>Contact List</h1>
-        <ContactList contacts={contacts} onDelete={handleDelete} />
-        <button onClick={() => setShowForm(true)}>Додати контакт</button>
-        {showForm && <ContactForm onSave={handleSave} onCancel={handleCancel} />}
-      </div>
-  );
+    return (
+        <div>
+            <ContactList onDelete={handleDelete} />
+            <div>
+                {showForm ? (
+                    <ContactForm onSave={handleSave} onCancel={handleCancel} />
+                ) : (
+                    <button onClick={() => setShowForm(true)}>Додати новий контакт</button>
+                )}
+            </div>
+        </div>
+    );
 };
 
 export default App;

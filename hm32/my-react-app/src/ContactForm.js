@@ -1,30 +1,44 @@
+// ContactForm.jsx
 import React, { useState } from 'react';
 
 const ContactForm = ({ onSave, onCancel }) => {
     const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
+    const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
 
     const handleSave = () => {
-        onSave({ name, username: surname, phone });
+        onSave({ name, username, phone });
         setName('');
-        setSurname('');
+        setUsername('');
         setPhone('');
+    };
+
+    const handleCancel = () => {
+        onCancel();
     };
 
     return (
         <div>
-            <h2>Форма додавання контакту</h2>
-            <label>Ім'я:</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <label>Прізвище:</label>
-            <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
-            <label>Телефон:</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
-            <div className="form-buttons">
-                <button onClick={handleSave}>Зберегти</button>
-                <button onClick={onCancel}>Скасувати</button>
-            </div>
+            <h2>Додати новий контакт</h2>
+            <form>
+                <label>
+                    Ім'я:
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </label>
+                <br />
+                <label>
+                    Прізвище:
+                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                </label>
+                <br />
+                <label>
+                    Телефон:
+                    <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                </label>
+                <br />
+                <button type="button" onClick={handleSave}>Зберегти</button>
+                <button type="button" onClick={handleCancel}>Скасувати</button>
+            </form>
         </div>
     );
 };
