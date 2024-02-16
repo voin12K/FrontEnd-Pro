@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой личный блог</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать в мой блог!</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О себе</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>О блоге</h2>
+        <p>Здесь будет краткое описание блога, его цели и тематики.</p>
+    </section>
+    <section>
+        <h2>Создать новый пост</h2>
+        <form id="postForm">
+            <input type="text" id="postTitle" placeholder="Заголовок поста" required>
+            <textarea id="postContent" placeholder="Содержание поста" required></textarea>
+            <button type="submit">Добавить пост</button>
+        </form>
+    </section>
+    <section>
+        <h2>Последние посты</h2>
+        <div id="posts"></div>
+    </section>
+</main>
+<footer>
+    <p>© 2024 Мой личный блог. Все права защищены.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
