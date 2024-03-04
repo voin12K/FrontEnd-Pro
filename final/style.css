@@ -1,10 +1,19 @@
-body {
-    font-family: Arial, sans-serif;
+body.dark {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #121212;
     color: #e0e0e0;
+}
+
+body.light {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 header, nav, main, footer {
@@ -25,53 +34,66 @@ nav ul li {
     margin-right: 20px;
 }
 
-a {
+body.dark a, body.light a {
     text-decoration: none;
-    color: #bb86fc;
+    color: #007bff;
 }
 
-a:hover {
-    color: #03dac6;
+body.dark a:hover, body.light a:hover {
+    color: #0056b3;
 }
 
 h1, h2 {
-    color: #ffffff;
+    color: inherit;
+}
+
+input[type="text"], textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
 }
 
 input[type="text"], textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-top: 8px;
-    border: 1px solid #333333;
-    background-color: #333333;
-    color: #ffffff;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark input[type="text"], body.dark textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
 }
 
 button {
-    background-color: #3700b3;
+    background-color: #007bff;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #03dac5;
+    background-color: #0056b3;
 }
 
 .post {
-    background-color: #1e1e1e;
+    background-color: #fff;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+body.dark .post {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(255,255,255,0.05);
 }
 
 .post h3, .post p {
-    color: #e0e0e0;
+    color: inherit;
 }
 
 @media (max-width: 768px) {
@@ -81,6 +103,6 @@ button:hover {
     }
 
     header, nav, main, footer {
-        width: 90%;
+        width: 95%;
     }
 }
