@@ -6,9 +6,10 @@
     <title>Мой личный блог</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
 <header>
     <h1>Добро пожаловать в мой блог!</h1>
+    <button id="themeToggle">Сменить тему</button>
     <nav>
         <ul>
             <li><a href="index.html">Главная</a></li>
@@ -23,6 +24,7 @@
         <form id="postForm">
             <input type="text" id="postTitle" placeholder="Заголовок поста" required>
             <textarea id="postContent" placeholder="Содержание поста" required></textarea>
+            <input type="file" id="postImage" accept="image/*">
             <button type="submit">Добавить пост</button>
         </form>
         <button id="clearPosts">Очистить все посты</button>
